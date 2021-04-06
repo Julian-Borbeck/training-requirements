@@ -54,13 +54,16 @@ def score(board):
 #minimax algorithm
 
 def minimax(board,depth,player):
+    #calculate score
     gameover ,winning = score(board)
     #print(depth)
     bestmove  = [-1,-1]
+    #initialize best values 
     if(player ==1 ):
         best = -10000000
     if( player == 2):
         best = 10000000
+    # set score by depth (solutions that need less moves for the win are better)
     if(gameover == True or depth == 0):
         if(winning == 1):
             scor = -depth
@@ -72,7 +75,7 @@ def minimax(board,depth,player):
 
         return scor, [-1,-1]
     else:
-            sco = 0
+            # iterate board, recursively calculate scores and compare them for each level
             for j in range(0, len(board)):
 
                 for k in range(0,len(board)):
@@ -100,7 +103,7 @@ def minimax(board,depth,player):
                                 best = sco
                                 bestmove = [j,k]
 
-            #print(best,player)
+            #return best score and move of level
             return best, bestmove
 
 def renderBoard(board): # draw the board anc check for win conditions
