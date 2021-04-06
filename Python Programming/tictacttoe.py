@@ -202,9 +202,9 @@ def game(boardsize,Ai):
                     y = player1[1]
                     successful = setboard(x,y,1,board)
                 else:
-                    print("You need to enter two coordinates seperated by a comma")x
+                    print("You need to enter two coordinates seperated by a comma")
             sco, move = minimax(board,movedepth-turn-1,Ai+1)
-            print(sco,move)
+            #print(sco,move)
 
             if(move[0] != -1 and move[1]!=-1):
                 board[move[0]][move[1]] = 2
@@ -215,7 +215,7 @@ def game(boardsize,Ai):
             successful = False
 
             sco, move = minimax(board, movedepth - turn , Ai + 1)
-            print(sco,move)
+            #print(sco,move)
 
             if (move[0] != -1 and move[1] != -1):
                 board[move[0]][move[1]] = 1
