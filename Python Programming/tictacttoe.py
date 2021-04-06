@@ -196,10 +196,13 @@ def game(boardsize,Ai):
             successful = False
             while(successful == False):
                 player1 = input("Player X enter move coordinates seperated by comma: ")
-                player1 = player1.split(",")
-                x = player1[0]
-                y = player1[1]
-                successful = setboard(x,y,1,board)
+                if(","in player1):
+                    player1 = player1.split(",")
+                    x = player1[0]
+                    y = player1[1]
+                    successful = setboard(x,y,1,board)
+                else:
+                    print("You need to enter two coordinates seperated by a comma")x
             sco, move = minimax(board,movedepth-turn-1,Ai+1)
             print(sco,move)
 
@@ -219,10 +222,13 @@ def game(boardsize,Ai):
             renderBoard(board)
             while (successful == False):
                 player2 = input("Player O enter move coordinates seperated by comma: ")
-                player2 = player2.split(",")
-                x = player2[0]
-                y = player2[1]
-                successful = setboard(x, y, 2,board)
+                if ("," in player2):
+                    player2 = player2.split(",")
+                    x = player2[0]
+                    y = player2[1]
+                    successful = setboard(x, y, 2,board)
+                else:
+                    print("You need to enter two coordinates seperated by a comma")
 
         # draw board
         over, winner = score(board)
